@@ -1,0 +1,34 @@
+.ship-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+}
+
+.ship-item h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.ship-item p {
+  font-size: 1em;
+}
+.ship-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+}
+
+.ship-item h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.ship-item p {
+  font-size: 1em;
+}

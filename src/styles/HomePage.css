@@ -1,0 +1,27 @@
+/* HomePage.css */
+
+.home-page {
+    text-align: center;
+    padding: 10px 20px;
+  }
+  
+  .home-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  .starships-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .starships-link:hover {
+    background-color: #333;
+  }
+
+  
