@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import './styles/App.css';
 import ShipDetail from './components/ShipDeatil';
+import { ShipProvider } from './ShipContext';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           </div>
         </header>
         <main>
+          <ShipProvider>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/starships" element={<ShipList />} />
@@ -29,6 +31,7 @@ function App() {
             <Route path="/signup" element={<Signup />}/>
             <Route path="/starships/:shipId" element={<ShipDetail />} />
           </Routes>
+          </ShipProvider>
         </main>
       </div>
     </Router>

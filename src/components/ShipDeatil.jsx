@@ -31,10 +31,12 @@ const ShipDetail = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+  const imageUrl = `https://starwars-visualguide.com/assets/img/starships/${shipId}.jpg`;
 
   return (
     <div className="ship-detail">
       <h2>{ship.name}</h2>
+      <img src={imageUrl} alt={ship.name} style={{ maxWidth: '100%', height: 'auto' }} />
       <p>Model: {ship.model}</p>
       <p>Manufacturer: {ship.manufacturer}</p>
       <p>Cost: {ship.cost_in_credits} credits</p>
@@ -45,7 +47,6 @@ const ShipDetail = () => {
       <p>Hyperdrive Rating: {ship.hyperdrive_rating}</p>
       <p>Cargo Capacity: {ship.cargo_capacity}</p>
       <p>Consumables: {ship.consumables}</p>
-      <div>Image: {ship.image}</div>
     </div>
   );
 };
