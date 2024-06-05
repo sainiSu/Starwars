@@ -1,37 +1,41 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchShips } from '../features/ships/shipsSlice';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import ShipItem from './ShipItem';
 import '../styles/ShipList.css';
 
 const ShipList = () => {
-  const dispatch = useDispatch();
-  const ships = useSelector((state) => state.ships.ships);
-  const status = useSelector((state) => state.ships.status);
-  const error = useSelector((state) => state.ships.error);
+  const [ships, setShips] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchShips());
-    }
-  }, [status, dispatch]);
+    const fetchShips = async () => {
+      try {
+        const response = await axios.get('https://swapi.dev/api/starships/');
+        setShips(response.data.results);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  let content;
+    fetchShips();
+  }, []);
 
-  if (status === 'loading') {
-    content = <div>Loading...</div>;
-  } else if (status === 'succeeded') {
-    content = ships.map((ship) => (
-      <ShipItem key={ship.name} name={ship.name} model={ship.model} />
-    ));
-  } else if (status === 'failed') {
-    console.error('Error:', error);
-    content = <div>{error}</div>;
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
   }
 
   return (
     <div className="ship-list">
-      {content}
+      {ships.map(ship => (
+        <ShipItem key={ship.name} name={ship.name} model={ship.model} url={ship.url} />
+      ))}
     </div>
   );
 };

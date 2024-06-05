@@ -1,0 +1,16 @@
+.ship-detail {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid whitesmoke;
+    background-color: aliceblue;
+    color: black;
+}
+
+.ship-dtail h2{
+    margin-bottom: 20px;
+}
+
+.ship-detail p {
+    margin:10px
+}

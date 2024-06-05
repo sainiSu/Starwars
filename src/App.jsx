@@ -1,7 +1,10 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import ShipList from './components/ShipList';
 import HomePage from './components/HomePage';
-import './App.css';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import './styles/App.css';
+import ShipDetail from './components/ShipDeatil';
 
 function App() {
   return (
@@ -14,14 +17,17 @@ function App() {
             <Link to="/starships" className="starships-link"> Starships</Link>
           </nav>
           <div className="login-signup">
-            <Link to="/">Log In</Link>
-            <Link to="/">Sign Up</Link>
+            <Link to="/login">Log In</Link>
+            <Link to="/signup">Sign Up</Link>
           </div>
         </header>
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/starships" element={<ShipList />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />}/>
+            <Route path="/starships/:shipId" element={<ShipDetail />} />
           </Routes>
         </main>
       </div>
